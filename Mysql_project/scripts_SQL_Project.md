@@ -49,17 +49,17 @@ GROUP BY students.students_name;
 
 ```sql
 SELECT 
+	courses.courses_name AS course,
     students.students_name AS student,
-    courses.courses_name AS course
-
+    students.students_id AS student_id
+    
 FROM students
 
 JOIN students_enrollments ON students_enrollments.students_enrollments_students_id = students.students_id
 JOIN courses ON students_enrollments.students_enrollments_courses_id = courses.courses_id
 
-ORDER BY 
-    students.students_name, 
-    courses.courses_name;
+ORDER BY courses.courses_name;
+
 ```
 
 - Create a summary report of courses and their average grades, sorted by the most challenging course (course with the lowest average grade) to the easiest course
